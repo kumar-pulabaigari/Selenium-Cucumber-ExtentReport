@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite1" duration-ms="167965" started-at="2017-01-09T03:14:15Z" finished-at="2017-01-09T03:17:03Z">
+    <groups>
+    </groups>
+    <test name="test1" duration-ms="167965" started-at="2017-01-09T03:14:15Z" finished-at="2017-01-09T03:17:03Z">
+      <class name="com.hom.stepDefinitions.RunCukes">
+        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.hom.stepDefinitions.RunCukes@28701274]" name="runCukes" duration-ms="167855" started-at="2017-01-09T08:44:15Z" finished-at="2017-01-09T08:47:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runCukes -->
+      </class> <!-- com.hom.stepDefinitions.RunCukes -->
+    </test> <!-- test1 -->
+  </suite> <!-- Suite1 -->
+</testng-results>

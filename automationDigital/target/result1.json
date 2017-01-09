@@ -1,0 +1,128 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 669964168,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 14,
+        "name": "Title validation after opening the page using Spreadsheet",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page-using-spreadsheet;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 136685167486,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "Chrome Browser has been initiated in local",
+              "Select the browser method",
+              "Project specific test data file :\\\\testData\\\\TestDataInputFile1.xls:  , and sheet name is TestData"
+            ],
+            "result": {
+              "duration": 8607824371,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Select the Browser \"Chrome\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Chrome",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 30
+                },
+                {
+                  "val": "Local",
+                  "offset": 34
+                },
+                {
+                  "val": "Windows",
+                  "offset": 43
+                },
+                {
+                  "val": "",
+                  "offset": 54
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "User is navigated to given URL:http://www.google.com"
+            ],
+            "result": {
+              "duration": 19524549517,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User is on a provided URL page",
+            "match": {
+              "location": "StepDefinitionFeature1.user_is_on_a_provided_URL_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "output": [
+              "Browse title is:Google",
+              "Title has been mateched with expected titleGoogle",
+              "Test passed"
+            ],
+            "result": {
+              "duration": 440141856,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Title should be matched with expected value.",
+            "match": {
+              "location": "StepDefinitionFeature1.title_should_be_matched_with_expected_value()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@Test1"
+          }
+        ]
+      }
+    ],
+    "name": "Sample feature to validate",
+    "description": "In order to do something\r\nAs someone\r\nI want something else to happen",
+    "id": "sample-feature-to-validate",
+    "keyword": "Feature",
+    "uri": "./src/test/java/com/hom/featureFile/feature1.feature"
+  }
+]

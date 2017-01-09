@@ -1,0 +1,29 @@
+#Selenium Grid
+SeleniumGridURL=http://localhost:4444/wd/hub
+
+#Perfecto-Details
+PerfectoURL=myHost.perfectomobile.com
+PerfectoUserName=myUser
+PerfectoPassword=Password
+
+#Android Mobile Devices
+androidMobileDeviceID=123456
+androidAppPackage=com.google.android.keep
+androidAppActivity=activities.BrowseActivity
+
+#IOS Mobile Devices
+iOSMobileDeviceID=123456
+iOSbundleId=com.yoctoville.errands
+
+#Selenium Local Driver
+chromeDriver=\\resources\\driver\\chromedriver.exe
+geckoDriver=\\resources\\driver\\geckodriver.exe
+IEdriver=\\resources\\driver\\IEDriverServer64.exe
+Edgedriver=\\resources\\driver\\MicrosoftWebDriver.exe
+
+#Testdata input sheet details
+testDataFile=\\testData\\TestDataInput.xls
+testDataSheet=TestData
+
+#ApplicationEnvironment
+environment=Dev

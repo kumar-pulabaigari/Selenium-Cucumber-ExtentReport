@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]" parallel="classes">
+  <test name="test1(failed)" parallel="classes">
+    <classes>
+      <class name="com.hom.stepDefinitions.RunCukes">
+        <methods>
+          <include name="runCukes"/>
+        </methods>
+      </class> <!-- com.hom.stepDefinitions.RunCukes -->
+    </classes>
+  </test> <!-- test1(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

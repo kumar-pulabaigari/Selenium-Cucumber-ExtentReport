@@ -1,0 +1,593 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 883231407,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 14,
+        "name": "Title validation after opening the page using Spreadsheet",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page-using-spreadsheet;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 8262274331,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "Chrome Browser has been initiated in local",
+              "Select the browser method",
+              "Project specific test data file :\\\\testData\\\\TestDataInputFile1.xls:  , and sheet name is TestData"
+            ],
+            "result": {
+              "duration": 10292257179,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Select the Browser \"Chrome\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Chrome",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 30
+                },
+                {
+                  "val": "Local",
+                  "offset": 34
+                },
+                {
+                  "val": "Windows",
+                  "offset": 43
+                },
+                {
+                  "val": "",
+                  "offset": 54
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "User is navigated to given URL:http://www.google.com"
+            ],
+            "result": {
+              "duration": 15238588425,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User is on a provided URL page",
+            "match": {
+              "location": "StepDefinitionFeature1.user_is_on_a_provided_URL_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "output": [
+              "Browse title is:Google",
+              "Title has been mateched with expected titleGoogle",
+              "Test passed"
+            ],
+            "result": {
+              "duration": 43640688,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Title should be matched with expected value.",
+            "match": {
+              "location": "StepDefinitionFeature1.title_should_be_matched_with_expected_value()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@Test1"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 566190,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Title validation after opening the page using Spreadsheet",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page-using-spreadsheet;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 2066395204,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "Firefox Browser has been initiated in local",
+              "Select the browser method",
+              "Project specific test data file :\\\\testData\\\\TestDataInputFile1.xls:  , and sheet name is TestData"
+            ],
+            "result": {
+              "duration": 17245635440,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Select the Browser \"Firefox\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Firefox",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 31
+                },
+                {
+                  "val": "Local",
+                  "offset": 35
+                },
+                {
+                  "val": "Windows",
+                  "offset": 44
+                },
+                {
+                  "val": "",
+                  "offset": 55
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "User is navigated to given URL:http://www.google.com"
+            ],
+            "result": {
+              "duration": 13067642190,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User is on a provided URL page",
+            "match": {
+              "location": "StepDefinitionFeature1.user_is_on_a_provided_URL_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "output": [
+              "Browse title is:Google",
+              "Title has been mateched with expected titleGoogle",
+              "Test passed"
+            ],
+            "result": {
+              "duration": 59591086,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Title should be matched with expected value.",
+            "match": {
+              "location": "StepDefinitionFeature1.title_should_be_matched_with_expected_value()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@Test1"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 411386,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "Title validation after opening the page using Spreadsheet",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page-using-spreadsheet;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 185099705,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 11158009816,
+              "error_message": "org.openqa.selenium.SessionNotCreatedException: Unable to create new remote session. desired capabilities \u003d Capabilities [{ensureCleanSession\u003dtrue, browserName\u003dinternet explorer, version\u003d, platform\u003dWINDOWS}], required capabilities \u003d Capabilities [{}]\nBuild info: version: \u00273.0.1\u0027, revision: \u00271969d75\u0027, time: \u00272016-10-18 09:49:13 -0700\u0027\nSystem info: host: \u0027PVinay\u0027, ip: \u0027172.20.1.75\u0027, os.name: \u0027Windows 8.1\u0027, os.arch: \u0027amd64\u0027, os.version: \u00276.3\u0027, java.version: \u00271.8.0_11\u0027\nDriver info: driver.version: InternetExplorerDriver\r\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:91)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:227)\r\n\tat org.openqa.selenium.ie.InternetExplorerDriver.run(InternetExplorerDriver.java:180)\r\n\tat org.openqa.selenium.ie.InternetExplorerDriver.\u003cinit\u003e(InternetExplorerDriver.java:172)\r\n\tat org.openqa.selenium.ie.InternetExplorerDriver.\u003cinit\u003e(InternetExplorerDriver.java:144)\r\n\tat com.hom.automationDigital.commonFunctions.CommonFunctions.setDriverLocal(CommonFunctions.java:125)\r\n\tat com.hom.automationDigital.commonFunctions.CommonFunctions.setDriver(CommonFunctions.java:81)\r\n\tat com.hom.stepDefinitions.StepDefinitionFeature1.select_the_Browser(StepDefinitionFeature1.java:66)\r\n\tat ✽.Given Select the Browser \"IE\", \"\", \"Local\", \"Windows\", \"\"(./src/test/resources/features/feature1.feature:8)\r\n",
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "Select the Browser \"IE\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "IE",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 26
+                },
+                {
+                  "val": "Local",
+                  "offset": 30
+                },
+                {
+                  "val": "Windows",
+                  "offset": 39
+                },
+                {
+                  "val": "",
+                  "offset": 50
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "User is on a provided URL page",
+            "match": {
+              "location": "StepDefinitionFeature1.user_is_on_a_provided_URL_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "output": [
+              "Test case failed"
+            ],
+            "line": 10,
+            "name": "Title should be matched with expected value.",
+            "match": {
+              "location": "StepDefinitionFeature1.title_should_be_matched_with_expected_value()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@Test1"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 879220,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 26,
+        "name": "Title validation after opening the page",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 2496175009,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "Chrome Browser has been initiated in local",
+              "Select the browser method"
+            ],
+            "result": {
+              "duration": 4393951601,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "Select the Browser \"Chrome\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Chrome",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 30
+                },
+                {
+                  "val": "Local",
+                  "offset": 34
+                },
+                {
+                  "val": "Windows",
+                  "offset": 43
+                },
+                {
+                  "val": "",
+                  "offset": 54
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "User is on given",
+              "User is navigated to given URL:http://www.google.com/"
+            ],
+            "result": {
+              "duration": 20443304224,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "User is on a google page",
+            "match": {
+              "location": "StepDefinitionFeature1.given()"
+            },
+            "keyword": "And "
+          },
+          {
+            "output": [
+              "Browse title is:Google",
+              "Title has been matched with expected title isGoogle",
+              "Test passed"
+            ],
+            "result": {
+              "duration": 390626303,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "Title should be \"Google\".",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Google",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefinitionFeature1.title_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 18,
+            "name": "@Test2"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 512736,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.before(Scenario)"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Title validation after opening the page",
+        "description": "",
+        "id": "sample-feature-to-validate;title-validation-after-opening-the-page;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 2376974877,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinitionFeature1.after(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "Firefox Browser has been initiated in local",
+              "Select the browser method"
+            ],
+            "result": {
+              "duration": 18625774823,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "Select the Browser \"Firefox\", \"\", \"Local\", \"Windows\", \"\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Firefox",
+                  "offset": 20
+                },
+                {
+                  "val": "",
+                  "offset": 31
+                },
+                {
+                  "val": "Local",
+                  "offset": 35
+                },
+                {
+                  "val": "Windows",
+                  "offset": 44
+                },
+                {
+                  "val": "",
+                  "offset": 55
+                }
+              ],
+              "location": "StepDefinitionFeature1.select_the_Browser(String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "keyword": "Given "
+          },
+          {
+            "output": [
+              "User is on given",
+              "User is navigated to given URL:http://www.google.com/"
+            ],
+            "result": {
+              "duration": 11380758601,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "User is on a google page",
+            "match": {
+              "location": "StepDefinitionFeature1.given()"
+            },
+            "keyword": "And "
+          },
+          {
+            "output": [
+              "Browse title is:Google",
+              "Title has been matched with expected title isGoogle",
+              "Test passed"
+            ],
+            "result": {
+              "duration": 75389672,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "Title should be \"Google\".",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Google",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefinitionFeature1.title_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 18,
+            "name": "@Test2"
+          }
+        ]
+      }
+    ],
+    "name": "Sample feature to validate",
+    "description": "In order to do something\r\nAs someone\r\nI want something else to happen",
+    "id": "sample-feature-to-validate",
+    "keyword": "Feature",
+    "uri": "./src/test/resources/features/feature1.feature"
+  }
+]
