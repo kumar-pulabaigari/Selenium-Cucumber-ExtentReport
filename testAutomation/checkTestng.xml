@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="10">
+
+	<listeners>
+		<listener class-name="test.TestNGListener"></listener>
+		<!--<listener class-name="stepDefinitions.QAFListener"></listener>-->
+	</listeners>
+
+	<!--Run the test case in Ios - WEB
+	<test name="Test1">
+		<parameter name="automationName" value="mobileWeb"/>
+		<parameter name="browser" value="Safari"/>
+		<parameter name="browserVersion" value=""/>
+		<parameter name="platformName" value="iOS"/>
+		<parameter name="environment" value="Perfecto"/>
+		<parameter name="model" value="iPhone-6"/>
+		<parameter name="manufacturer" value="Apple" />
+		<parameter name="driver.name" value="perfectoDriver"/>
+		<parameter name="deviceId" value="B7423E455CEAA7DB01363103D6434664697B85D9"/>
+		<parameter name="driver.capabilities.driverClass" value="io.appium.java_client.ios.IOSDriver"/>
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>-->
+	<!--Run the test case in Andoid - WEB
+	<test name="Test2">
+		<parameter name="automationName" value="mobileWeb"/>
+		<parameter name="browser" value="Chrome"/>
+		<parameter name="browserVersion" value=""/>
+		<parameter name="environment" value="Perfecto"/>
+		<parameter name="environment" value="Android" />
+		<parameter name="model"  value="Galaxy Note5"/>
+		<parameter name="driver.name" value="perfectoDriver"/>
+		<parameter name="driver.capabilities.deviceName" value="071607781B5E0B04"/>
+		<parameter name="driver.capabilities.driverClass" value="io.appium.java_client.android.AndroidDriver"/>
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>-->
+	<!-- Run the test case in ANDROID - APP
+    <test name="Test3">
+        <parameter name="automationName" value="Mobile"/>
+        <parameter name="browser" value=""/>
+        <parameter name="browserVersion" value=""/>
+        <parameter name="environment" value="android"/>
+        <parameter name="driver.capabilities.platformName" value="Android"/>
+        <parameter name="driver.capabilities.deviceName" value="AD0816033883594BA3"/>
+        <parameter name="driver.capabilities.appPackage" value="com.dbs.dbspaylah"/>
+        <parameter name="driver.capabilities.driverClass"
+                   value="io.appium.java_client.android.AndroidDriver"/>
+        <parameter name="windtunnelparsona" value="ross"/>
+        <parameter name="step.provider.pkg" value="test.scripts"/>
+        <parameter name="scenario.file.loc" value="src/com/features/paylahScenarios2.feature"/>
+        <parameter name="deviceName" value="Galaxy S7"></parameter>
+        <classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+    </test>-->
+	<!--Run the test case in Android - APP
+    <test name="Test4">
+        <parameter name="automationName" value="Mobile"/>
+        <parameter name="browser" value=""/>
+        <parameter name="browserVersion" value=""/>
+        <parameter name="environment" value="android"/>
+        <parameter name="driver.capabilities.platformName" value="Android"/>
+        <parameter name="driver.capabilities.deviceName" value="CE061606C0F3652203"/>
+        <parameter name="driver.capabilities.appPackage" value="com.dbs.dbspaylah"/>
+        <parameter name="driver.capabilities.driverClass"
+                   value="io.appium.java_client.android.AndroidDriver"/>
+        <parameter name="windtunnelparsona" value="ross"/>
+        <parameter name="step.provider.pkg" value="test.scripts"/>
+        <parameter name="scenario.file.loc" value="src/com/features/paylahScenarios3.feature"/>
+        <parameter name="deviceName" value="Galaxy S7 Edge"></parameter>
+       <classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+    </test>-->
+	<!--Run the test case in IOS - APP
+    <test name="Test5">
+        <parameter name="automationName" value="Mobile"/>
+        <parameter name="browser" value=""/>
+        <parameter name="browserVersion" value=""/>
+        <parameter name="environment" value="ios"/>
+        <parameter name="driver.capabilities.platformName" value="IOS"/>
+        <parameter name="driver.capabilities.deviceName" value="B7423E455CEAA7DB01363103D6434664697B85D9"/>
+        <parameter name="driver.capabilities.bundleId" value="com.dbs.dbspaylah2"/>
+        <parameter name="driver.capabilities.driverClass"
+                   value="io.appium.java_client.ios.IOSDriver"/>
+        <parameter name="windtunnelparsona" value="ross"/>
+        <parameter name="step.provider.pkg" value="test.scripts"/>
+        <parameter name="scenario.file.loc" value="src/com/features/paylahScenarios2.feature"/>
+        <classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+    </test>-->
+
+	<!--Run the test case in LOCAL - WEB- IE
+    <test name="Test6">
+        <parameter name="automationName" value="web"/>
+        <parameter name="browser" value="ie"/>
+        <parameter name="environment" value="local"/>
+        <parameter name="browserVersion" value="11"/>
+        <parameter name="remote.server" value="localhost"/>
+        <parameter name="remote.port" value="4444"/>
+        <parameter name="driver.name" value="iExplorerDriver"/>
+        <parameter name="driver.capabilities.platformName" value="windows"/>
+       <classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+    </test>-->
+	<!--Run the test case in LOCAL - WEB- Chrome
+	<test name="Test7">
+		<parameter name="automationName" value="Web"/>
+		<parameter name="browser" value="chrome"/>
+		<parameter name="browserVersion" value="50"/>
+		<parameter name="environment" value="local"/>
+		<parameter name="remote.server" value="localhost"/>
+		<parameter name="remote.port" value="4444"/>
+		<parameter name="driver.name" value="chromeDriver"/>
+		<parameter name="firefox.capabilities.version" value="5.0"/>
+		<parameter name="driver.capabilities.platformName" value="WINDOWS"/>
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>-->
+
+	<!--Run the test case in Local - WEB-  firefox
+    <test name="Test8">
+        <parameter name="automationName" value="web"/>
+        <parameter name="browser" value="Firefox"/>
+        <parameter name="environment" value="local"/>
+        <parameter name="browserVersion" value="38"/>
+        <parameter name="remote.server" value="localhost"/>
+        <parameter name="remote.port" value="4444"/>
+        <parameter name="driver.name" value="firefoxDriver"/>
+        <parameter name="driver.capabilities.platformName" value="windows"/>
+       <classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+    </test>-->
+	<!--Run the test case in SELENIUM GRID - WEB-  Chrome
+	<test name="Test9">
+		<parameter name="automationName" value="web"/>
+		<parameter name="browser" value="Chrome"/>
+		<parameter name="environment" value="SeleniumGrid"/>
+		<parameter name="browserVersion" value="51"/>
+		<parameter name="remote.server" value="localhost"/>
+		<parameter name="remote.port" value="4444"/>
+		<parameter name="driver.name" value="chromeRemoteDriver"/>
+		<parameter name="driver.capabilities.platformName" value="windows"/>
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>-->
+
+	<!--Run the test case in SELENIUM GRID - WEB- IE
+	<test name="Test10">
+		<parameter name="automationName" value="web"/>
+		<parameter name="browser" value="iExplorer"/>
+		<parameter name="browserVersion" value="11"/>
+		<parameter name="environment" value="SeleniumGrid"/>
+		<parameter name="browserVersion" value=""/>
+		<parameter name="remote.server" value="localhost"/>
+		<parameter name="remote.port" value="4444"/>
+		<parameter name="driver.name" value="iExplorerRemoteDriver"/>
+		<parameter name="driver.capabilities.platformName" value="windows"/>
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>-->
+
+	<!--Run the test case in SELENIUM GRID - WEB-  firefox-->
+	<test name="Test11">
+		<parameter name="automationName" value="web"/>
+		<parameter name="browser" value="Firefox"/>
+		<parameter name="environment" value="SeleniumGrid"/>
+		<parameter name="browserVersion" value="51"/>
+		<parameter name="remote.server" value="localhost"/>
+		<parameter name="remote.port" value="4444"/>
+		<parameter name="driver.name" value="firefoxRemoteDriver"/>
+		<parameter name="driver.capabilities.platformName" value="windows"/>
+		<parameter name="driver.firefox.profile" value="seleniumUser" />
+		<!--<parameter name="driver.capabilities.version" value="51" />-->
+		<!--<parameter name="driver.extra.capabilities=acceptSslCerts"  value="false"/>-->
+		<!--<parameter name="driver.additional.capabilities.CapabilityType.ACCEPT_SSL_CERTS" value="true" />-->
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test>
+
+	<!--Run the test case in SELENIUM GRID - WEB-  PhantomJS
+	<test name="Test12">
+		<parameter name="automationName" value="web"/>
+		<parameter name="browser" value="otherDriver"/>
+		<parameter name="browserVersion" value="3"/>
+		<parameter name="environment" value="SeleniumGrid"/>
+		<parameter name="remote.server" value="localhost"/>
+		<parameter name="remote.port" value="4444"/>
+		<parameter name="driver.name" value="otherRemoteDriver"/>
+		<parameter name="other.additional.capabilities" value="{'driverClass':'org.openqa.selenium.phantomjs.PhantomJSDriver', 'browserName': 'phantomjs'}" />
+		<classes>
+			<class name="stepDefinitions.RunCukesHealthCheckTest"/>
+		</classes>
+	</test> -->
+</suite>

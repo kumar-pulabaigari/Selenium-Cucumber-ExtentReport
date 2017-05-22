@@ -1,0 +1,192 @@
+group 'com.dbs'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+version = '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//Environment Variable--------------------------------------------------
+def project_name = "posb_flp_testAutomation"
+//def hostname = InetAddress.getLocalHost().getHostName();
+//def DBSbURL="${DBSbaseURL}"
+//def POSBbURL="${POSBbaseURL}"
+
+//def environment="${env}"
+//def environment = "UAT"
+def environment ="AWSPreview"
+//def environment ="AWSProd"
+
+def testPhase="Regression"
+//def testPhase="HealthCheck"
+//def testPhase = "Smoke"
+
+//def POSBbURL = "http://dbsweb-uat-posb-www.uat.dbs.com"
+def POSBbURL = "http://dbsweb-s02-prv.posb.com.sg"
+//def POSBbURL = "http://dbsweb-s02.posb.com.sg"
+
+def bambooBuildNumber = 5
+def directoryBasePath = "build\\libs"
+def zipOutput = "zipOutput"
+
+//----------------------------------------------------------------------
+
+//Version control
+Properties versionProps = new Properties()
+def versionPropsFile = file(System.getProperty("user.dir") + File.separator +'resources/applicationURL.properties')
+if (versionPropsFile.exists())
+    versionProps.load(new FileInputStream(versionPropsFile))
+//def code = (versionProps['VERSION_CODE'] ?: "0").toInteger()
+//def Releasecode = (versionProps['RELEASE_BUILD'] ?: "0").toInteger()
+println(POSBbURL)
+versionProps['env.POSBbURL'] = POSBbURL.toString()
+versionProps['env.name'] = environment.toString()
+versionProps.store(versionPropsFile.newWriter(), null)
+
+defaultTasks 'clean', 'assemble', 'classes', 'testClasses', 'test', 'fatJar', 'copyTestNgXML','copySpecFile', 'copyDrivers', 'copyResources', 'copyFeatures','copyTestData', 'copyDashboard', 'copyDocuments', 'copyLogo', 'copyLogProperties', 'packageZIP'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src"]
+        }
+        resources {
+            srcDirs = ["resources"]
+        }
+    }
+}
+
+repositories {
+    flatDir name: 'lib', dirs: "$projectDir/lib"
+    flatDir dirs: ["$projectDir/lib"]
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    testCompile fileTree(dir: 'lib', include: ['*.jar'])
+    runtime fileTree(dir: 'lib', include: ['*.jar'])
+//    extraLibs fileTree(dir: 'lib', include: ['*.jar'])
+}
+
+//Copy the Dependency JARs
+task copyDependencies(type: Copy) {
+    from configurations.compile
+    into 'build/dependencies'
+}
+
+task copyDrivers(type: Copy) {
+    //  println($buildDir)
+    from "lib/drivers"
+    include "*.*"
+    into "build/libs/lib/drivers"
+}
+
+task copyResources(type: Copy) {
+    //   println($buildDir)
+    from "resources"
+    include "*.*"
+    into "build/libs/resources"
+}
+
+task copyFeatures(type: Copy) {
+    //   println($buildDir)
+    from "src/test/java/applicationFeature"
+    include "*.*"
+    into "build/libs/src/test/java/applicationFeature"
+}
+
+task copySpecFile(type: Copy){
+    from "/src/test/java/specs/"
+    include "*.spec"
+    into "build/libs/src/test/java/specs/"
+
+}
+task copyTestData(type: Copy) {
+    from "TestData"
+    include "*.*"
+    into "build/libs/TestData"
+}
+
+task copyDashboard(type: Copy) {
+    from "dashboard"
+    include "*.*"
+    into "build/libs/dashboard"
+}
+
+task copyDocuments(type: Copy) {
+    from "Documents"
+    include "*.*"
+    into "build/libs/Documents"
+}
+
+task copyLogo(type: Copy) {
+    from "logos"
+    include "*.*"
+    into "build/libs/logos"
+}
+
+task copyLogProperties(type: Copy) {
+    from "LogProperties"
+    include "*.*"
+    into "build/libs/LogProperties"
+}
+
+task copyTestNgXML(type: Copy) {
+    from "."
+    include "**.xml"
+    into "build/libs"
+}
+
+jar {
+
+}
+
+test {
+    // enable TestNG support (default is JUnit)
+//    useTestNG()
+//    if ("${testPhase}".equalsIgnoreCase("Regression")) {
+//        options.suites("testng.xml");
+//    } else if ("${testPhase}".equalsIgnoreCase("HealthCheck")) {
+//        options.suites("checkTestng.xml");
+//    } else {
+//        options.suites("smokeTestng.xml");
+//    }
+}
+
+task packageZIP(type: Zip) {
+    println "buildnumber:::::::::::$bambooBuildNumber"
+    println buildDir
+    destinationDir file("$zipOutput")
+    archiveName "${project_name}_${bambooBuildNumber}.zip"
+    FileTree tree = fileTree("$buildDir")
+    tree.include "**/*"
+    from tree
+    includeEmptyDirs = true
+}
+
+task fatJar(type: Jar) {
+    zip64 true
+    if ("${testPhase}".equalsIgnoreCase("Regression")) {
+        manifest {
+            attributes 'Implementation-Title': 'TestAutomation',
+                    'Implementation-Version': "${bambooBuildNumber}",
+                    'Main-Class': 'runner.runnerRegressionClass'
+        }
+    } else if ("${testPhase}".equalsIgnoreCase("HealthCheck")) {
+        manifest {
+            attributes 'Implementation-Title': 'TestAutomation',
+                    'Implementation-Version': "${bambooBuildNumber}",
+                    'Main-Class': 'runner.runnerHealthCheckClass'
+        }
+    } else {
+        manifest {
+            attributes 'Implementation-Title': 'TestAutomation',
+                    'Implementation-Version': "${bambooBuildNumber}",
+                    'Main-Class': 'runner.runnerSmokeClass'
+        }
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
