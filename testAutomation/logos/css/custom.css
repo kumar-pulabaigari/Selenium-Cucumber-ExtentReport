@@ -1,0 +1,27 @@
+/*
+@ Page custom CSS
+@ Author: Nirmala G
+*/
+
+body {background-color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; text-align: center; } 
+small { font-size: 0.7em; } 
+			
+table.testData { box-shadow: 9px 9px 10px 4px #BDBDBD;border: 0px solid #4D7C7B;border-collapse: collapse; border-spacing: 0px; width: 1010px; margin-left: auto; margin-right: auto; } 
+table.testData tr.heading { background-color: #041944;color: #FFFFFF; font-size: 0.7em; font-weight: bold; background:-o-linear-gradient(bottom, #999999 5%, #000000 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #999999), color-stop(1, #000000) );background:-moz-linear-gradient( center top, #999999 5%, #000000 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#999999, endColorstr=#000000);	background: -o-linear-gradient(top,#999999,000000);} 
+table.testData tr.subheading { background-color: #6A90B6;color: #000000; font-weight: bold; font-size: 0.7em; text-align: justify; } 
+table.testData tr.section { background-color: #A4A4A4; color: #333300; cursor: pointer; font-weight: bold;font-size: 0.8em; text-align: justify;background:-o-linear-gradient(bottom, #56aaff 5%, #e5e5e5 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #56aaff), color-stop(1, #e5e5e5) );background:-moz-linear-gradient( center top, #56aaff 5%, #e5e5e5 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#56aaff, endColorstr=#e5e5e5);	background: -o-linear-gradient(top,#56aaff,e5e5e5);} 
+table.testData tr.subsection { cursor: pointer; } 
+table.testData tr.content { background-color: #FFFFFF; color: #000000; font-size: 0.7em; display: table-row; } 
+table.testData tr.content2 { background-color:#;E1E1E1border: 1px solid #4D7C7B;color: #000000; font-size: 0.7em; display: table-row; } 
+table.testData td, table.testData th { padding: 5px; border: 1px solid #4D7C7B; text-align: inherit}
+
+th.Logos { border: 0 solid #4d7c7b !important; padding: 5px; }
+
+#chart1{width: 300px;float:left;height:188px;left:15%}
+#chart2{width: 300px;float:left;height:188px;left:16px}
+#chart3{width: 300px;float:left;height:188px;left:21%}
+
+.mainTableDiv1 {margin-left: auto;margin-right: auto;position: relative;width: 1010px !important;}
+.mainTableDiv2 {margin-left: auto;margin-right: auto;position: relative;width: 1010px !important;}
+.mainTableDiv3 {margin-left: auto;margin-right: auto;position: relative;width: 1010px !important;}
+.mainTableDiv4 {margin-left: auto;margin-right: auto;position: relative;width: 1010px !important;}
