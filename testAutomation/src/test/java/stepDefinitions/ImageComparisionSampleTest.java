@@ -1,54 +1,150 @@
 package stepDefinitions;
 
 
-import com.qmetry.qaf.automation.ui.WebDriverTestCase;
+import automation.drivers.CommonActions;
+import automation.report.ReporterConstants;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ImageComparisionSampleTest extends WebDriverTestCase {
+import static com.qmetry.qaf.automation.core.ConfigurationManager.getBundle;
 
+public class ImageComparisionSampleTest extends CommonActions {
 
-    @Test
-    public void feature() throws IOException, InterruptedException {
-        getDriver().get("https://dbsweb-uat-sg-www.uat.dbs.com/i-bank/default.page");
-        Thread.sleep(1000);
-        File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+    private String instance="1";
+    @DataProvider(name="urls")
+    public Object[][] urlData() {
+        Object[][] arrayObject = getExcelData(System.getProperty("user.dir")+"\\TestData\\Landing page_prod uat & sit URLs.xls","URL");
+        return arrayObject;
+    }
 
-        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ "\\tmp\\screenshot1.png"));
-        Reporter.log( "Screen shot-2 has been saved, and saved at:" + System.getProperty("user.dir")+ "\\tmp\\screenshot1.png" , true);
-        Thread.sleep(1000);
-        getDriver().get("http://dbsweb-s01.dbs.com.sg/i-bank/default.page");
-        Thread.sleep(1000);
+    public String[][] getExcelData(String fileName, String sheetName) {
+        String[][] arrayExcelData = null;
+        try {
+            FileInputStream fs = new FileInputStream(fileName);
+            Workbook wb = Workbook.getWorkbook(fs);
+            Sheet sh = wb.getSheet(sheetName);
+
+            int totalNoOfCols = sh.getColumns();
+            int totalNoOfRows = sh.getRows();
+
+            arrayExcelData = new String[totalNoOfRows-1][totalNoOfCols];
+
+            for (int i= 1 ; i < totalNoOfRows; i++) {
+
+                for (int j=0; j < totalNoOfCols; j++) {
+                    arrayExcelData[i-1][j] = sh.getCell(j, i).getContents();
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.printStackTrace();
+        } catch (BiffException e) {
+            e.printStackTrace();
+        }
+        return arrayExcelData;
+    }
+
+    @Test(dataProvider="urls")
+    public void feature(String SNo,	String caseID, String caseName,String Page,String Country, String BusinessUnit, String Segment,	String PRODURLs, String	UATURLs, String	SITURLs) throws Throwable {
+        String testCaseName=Page + "_" +Country +  "_" +BusinessUnit + "_" +Segment ;
+        String fileName1= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot1.png";
+        String fileName2= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot2.png";
+        String fileName3= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot3.png";
+        String fileName12= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot12.png";
+        String fileName23= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot23.png";
+        String fileName31= "\\tmp\\instance1\\" + caseName +  "\\" + getBundle().getString("browser") +"\\HTTPscreenshot31.png";
+        File scrFile;
+        try {
+            getReporter().initTestCase(this.getClass().getName().substring(0, this.getClass().getName().lastIndexOf(".")), caseName, "Screenshot compare_" +testCaseName, false);
+        } catch(Exception  ex){
+            System.out.println("Report Initiation exception is " + ex.getMessage());
+        }
+
+       /* getDriver().get(PRODURLs);
+        Thread.sleep(3000);
+        getDriver().manage().window().maximize();
+        Thread.sleep(3000);
         scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ "\\tmp\\screenshot2.png"));
-        Reporter.log( "Screen shot-2 has been saved, and saved at:" + System.getProperty("user.dir")+ "\\tmp\\screenshot2.png" , true);
-        if (similarity( ImageIO.read(new File(System.getProperty("user.dir")+ "\\tmp\\screenshot1.png")), ImageIO.read(new File(System.getProperty("user.dir")+ "\\tmp\\screenshot2.png"))) > 10){
-            Reporter.log( "Both images matched", true );
+        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ fileName1));
+        if(new File(System.getProperty("user.dir")+ fileName1).exists()){
+            getReporter().SuccessReport("Screen shot of Prod URL:" + PRODURLs, " has been captured, and Image path is " + new File(System.getProperty("user.dir")+ fileName1).getAbsolutePath());
+        } else {
+            getReporter().failureReport("Screen shot of Prod URL:" + PRODURLs, " has not been captured");
+        }
+
+        getDriver().get(UATURLs);
+        Thread.sleep(3000);
+        getDriver().manage().window().maximize();
+        Thread.sleep(3000);
+        scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ fileName2));
+        if(new File(System.getProperty("user.dir")+ fileName2).exists()){
+            getReporter().SuccessReport("Screen shot of UAT URL:" + UATURLs, " has been captured, and Image path is " + new File(System.getProperty("user.dir")+ fileName2).getAbsolutePath());
+        } else {
+            getReporter().failureReport("Screen shot of UAT URL:" + UATURLs, " has not been captured");
+        }*/
+        getDriver().manage().deleteAllCookies();
+        Thread.sleep(1000);
+        getDriver().get("http:\\" + SITURLs);
+        Thread.sleep(3000);
+        getDriver().manage().window().maximize();
+        Thread.sleep(3000);
+        scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+ fileName3));
+        if(new File(System.getProperty("user.dir")+ fileName3).exists()){
+            getReporter().SuccessReport("Screen shot of SIT URL:" + SITURLs, " has been captured, and Image path is " + new File(System.getProperty("user.dir")+ fileName3).getAbsolutePath());
+        } else {
+            getReporter().failureReport("Screen shot of SIT URL:" + SITURLs, " has not been captured");
+        }
+
+         if(getDriver().getCurrentUrl().contains("https://")){
+             getReporter().failureReport("SIT URL:" + SITURLs, " has been navigated to https, and current URL is " + getDriver().getCurrentUrl());
+         }
+        /*if (similarity( ImageIO.read(new File(System.getProperty("user.dir")+ fileName1)), ImageIO.read(new File(System.getProperty("user.dir")+fileName2)), fileName12) < 05){
+            getReporter().SuccessReport("Production and UAT screen shot" , " is matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName12).getAbsolutePath());
             System.out.println("Both images matched");
         } else {
-            Reporter.log( "Both images aren't matched", false );
+            getReporter().failureReport("Production and UAT screen shot" , " is NOT matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName12).getAbsolutePath());
             System.out.println("Both images aren't matched");
         }
-        ;
+
+        if (similarity( ImageIO.read(new File(System.getProperty("user.dir")+ fileName2)), ImageIO.read(new File(System.getProperty("user.dir")+fileName3)), fileName23) < 05){
+            getReporter().SuccessReport("UAT and SIT screen shot" , " is matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName23).getAbsolutePath());
+            System.out.println("Both images matched");
+        } else {
+            getReporter().failureReport("UAT and SIT screen shot" , " is NOT matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName23).getAbsolutePath());
+            System.out.println("Both images aren't matched");
+        }
+
+        if (similarity( ImageIO.read(new File(System.getProperty("user.dir")+ fileName3)), ImageIO.read(new File(System.getProperty("user.dir")+fileName1)), fileName31) < 05){
+            getReporter().SuccessReport("SIT and Production screen shot" , " is matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName31).getAbsolutePath());
+            System.out.println("Both images matched");
+        } else {
+            getReporter().failureReport("SIT and Production screen shot" , " is NOT matched , and path of the difference image is " + new File(System.getProperty("user.dir")+ fileName31).getAbsolutePath());
+            System.out.println("Both images aren't matched");
+        }*/
     }
 
-    @AfterClass(alwaysRun = true)
-    public void tearDownClass() throws Exception {
 
-    }
-
-    public static double similarity( BufferedImage image1, BufferedImage image2 ) throws IOException{
+    public static double similarity( BufferedImage image1, BufferedImage image2, String filename ) throws IOException{
         int total_no_ofPixels = 0;
         int image1_PixelColor, red, blue, green;
         int image2_PixelColor, red2, blue2, green2;
@@ -86,10 +182,12 @@ public class ImageComparisionSampleTest extends WebDriverTestCase {
         System.out.println(String.format( "%-2d: %s", 0, toString( endTime - startTime )));
 
         System.out.println(" Writing the difference of first_Image to Second_Image ");
-        ImageIO.write(image2, "png", new File(System.getProperty("user.dir")+ "\\tmp\\difference.png"));
+        ImageIO.write(image2, "png", new File(System.getProperty("user.dir")+ filename));
 
         non_Similarity = (nonSimilarPixels / total_no_ofPixels);
         System.out.println( "Total No of pixels : " + total_no_ofPixels +"\t Non Similarity is : " + non_Similarity +"%");
+
+
 
         return non_Similarity;
     }
@@ -106,5 +204,20 @@ public class ImageComparisionSampleTest extends WebDriverTestCase {
         else if ( millisecs == 0                 )    return minutes + "min " + seconds + "s";
 
         return minutes + "min " + seconds + "s " + millisecs + "ms";
+    }
+
+
+    @AfterMethod
+    public void afterTestNgTestCase() throws Exception {
+        try {
+            getReporter().calculateTestCaseExecutionTime();
+            getReporter().closeDetailedReport();
+            getReporter().updateTestCaseStatus();
+            //getReporter().calculateSuiteExecutionTime();
+            getReporter().createHtmlSummaryReport(ReporterConstants.APP_BASE_URL, false);
+            getReporter().closeSummaryReport();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
